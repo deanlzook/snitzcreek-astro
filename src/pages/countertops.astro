@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Countertops | Snitz Creek Cabinet Shop">
+  <Header />
+  <main class="pt-24">
+    <section class="py-16 max-w-5xl mx-auto px-6">
+      <p class="text-wood text-sm uppercase tracking-[0.3em] mb-4">Countertops</p>
+      <h1 class="font-serif text-5xl md:text-6xl text-darkwood mb-8">The Perfect Surface for Your Cabinetry</h1>
+      <p class="text-xl text-charcoal/70 max-w-3xl leading-relaxed">Your countertop choice depends on the look, feel, and function you want. We help you select the right material to complement your cabinets.</p>
+    </section>
+
+    <section class="pb-20 max-w-6xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="border border-wood/10 p-6">
+        <h3 class="font-serif text-2xl mb-2">Natural Stone</h3>
+        <p class="text-charcoal/70 text-sm">Granite, marble, and quartzite for timeless beauty and durability.</p>
+      </div>
+      <div class="border border-wood/10 p-6">
+        <h3 class="font-serif text-2xl mb-2">Solid Surface</h3>
+        <p class="text-charcoal/70 text-sm">Seamless, hygienic, and available in a wide range of colors and patterns.</p>
+      </div>
+      <div class="border border-wood/10 p-6">
+        <h3 class="font-serif text-2xl mb-2">Quartz</h3>
+        <p class="text-charcoal/70 text-sm">Engineered for consistency, low maintenance, and modern aesthetics.</p>
+      </div>
+      <div class="border border-wood/10 p-6">
+        <h3 class="font-serif text-2xl mb-2">Wood Tops</h3>
+        <p class="text-charcoal/70 text-sm">Warm butcher block and custom wood surfaces that match your cabinetry.</p>
+      </div>
+      <div class="border border-wood/10 p-6">
+        <h3 class="font-serif text-2xl mb-2">Soapstone</h3>
+        <p class="text-charcoal/70 text-sm">Natural, heat-resistant, and develops a beautiful patina over time.</p>
+      </div>
+      <div class="border border-wood/10 p-6">
+        <h3 class="font-serif text-2xl mb-2">Laminate & Others</h3>
+        <p class="text-charcoal/70 text-sm">Practical options including laminate, glass, and metal when the project calls for it.</p>
+      </div>
+    </section>
+
+    <section class="py-16 bg-cream text-center">
+      <p class="text-lg text-charcoal/70 mb-6">Come see samples in the showroom and discuss what works best for your kitchen or bath.</p>
+      <a href="/contact" class="inline-block bg-darkwood text-cream px-10 py-4 text-sm uppercase tracking-widest hover:bg-wood transition">Contact Us</a>
+    </section>
+  </main>
+  <Footer />
+</Layout>
