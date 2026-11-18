@@ -20,19 +20,22 @@ import Footer from '../components/Footer.astro';
         <div>
           <h2 class="font-serif text-2xl mb-4">Get in Touch</h2>
           <p><a href="tel:7172739861" class="text-wood hover:text-darkwood">(717) 273-9861</a></p>
-          <p class="mt-2"><a href="mailto:customerservice@snitzcreek.com" class="text-wood hover:text-darkwood">customerservice@snitzcreek.com</a></p>
+          <p class="mt-2"><a href="mailto:info@snitzcreek.com" class="text-wood hover:text-darkwood">info@snitzcreek.com</a></p>
         </div>
       </div>
 
-      <form class="space-y-6">
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
         <div class="grid md:grid-cols-2 gap-6">
-          <input type="text" placeholder="Name" class="w-full border border-wood/30 bg-white px-4 py-3 focus:outline-none focus:border-wood" />
-          <input type="email" placeholder="Email" class="w-full border border-wood/30 bg-white px-4 py-3 focus:outline-none focus:border-wood" />
+          <input type="text" name="name" placeholder="Name" required class="w-full border border-wood/30 bg-white px-4 py-3 focus:outline-none focus:border-wood" />
+          <input type="email" name="email" placeholder="Email" required class="w-full border border-wood/30 bg-white px-4 py-3 focus:outline-none focus:border-wood" />
         </div>
-        <input type="tel" placeholder="Phone" class="w-full border border-wood/30 bg-white px-4 py-3 focus:outline-none focus:border-wood" />
-        <textarea rows="5" placeholder="Tell us about your project" class="w-full border border-wood/30 bg-white px-4 py-3 focus:outline-none focus:border-wood"></textarea>
+        <input type="tel" name="phone" placeholder="Phone" class="w-full border border-wood/30 bg-white px-4 py-3 focus:outline-none focus:border-wood" />
+        <textarea name="message" rows="5" placeholder="Tell us about your project" required class="w-full border border-wood/30 bg-white px-4 py-3 focus:outline-none focus:border-wood"></textarea>
+        <input type="hidden" name="_subject" value="New project inquiry from snitzcreek.com" />
         <button type="submit" class="bg-darkwood text-cream px-10 py-4 text-sm uppercase tracking-widest hover:bg-wood transition">Send Message</button>
       </form>
+
+      <p class="text-sm text-charcoal/50 mt-6">Replace YOUR_FORM_ID in the form action with your actual Formspree form ID.</p>
     </section>
   </main>
   <Footer />
