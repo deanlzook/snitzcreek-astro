@@ -51,6 +51,17 @@ const collections = [
     ]
   }
 ];
+
+const instagramImages = [
+  "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-1-1.jpg",
+  "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-3.jpg",
+  "https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-.jpg",
+  "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-2.jpg",
+  "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-22.jpg",
+  "https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-2.jpg",
+  "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-4.jpg",
+  "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-20.jpg",
+];
 ---
 
 <Layout title="Portfolio | Snitz Creek Cabinet Shop">
@@ -96,6 +107,34 @@ const collections = [
       ))}
     </section>
 
+    <!-- Follow Us on Instagram -->
+    <section class="py-20 bg-cream border-t border-wood/20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-10">
+          <h2 class="font-serif text-3xl md:text-4xl text-darkwood mb-4">Follow Us on Instagram</h2>
+          <p class="text-charcoal/70">See more of our work and behind-the-scenes moments</p>
+          <a href="https://www.instagram.com/snitzcreekcabinetshop/" target="_blank" rel="noopener" class="inline-block mt-4 text-wood hover:text-darkwood text-lg font-medium">@snitzcreekcabinetshop</a>
+        </div>
+
+        <div class="instagram-scroll flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+          {instagramImages.map((src) => (
+            <a 
+              href="https://www.instagram.com/snitzcreekcabinetshop/" 
+              target="_blank" 
+              rel="noopener"
+              class="flex-shrink-0 snap-center"
+            >
+              <img 
+                src={src} 
+                alt="Snitz Creek on Instagram" 
+                class="h-64 w-auto object-cover rounded hover:opacity-90 transition"
+              />
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <section class="py-16 bg-darkwood text-cream text-center">
       <h2 class="font-serif text-3xl md:text-4xl mb-4">Ready to start your own project?</h2>
       <a href="/contact" class="inline-block mt-6 bg-gold text-charcoal px-10 py-4 text-sm uppercase tracking-widest font-medium hover:bg-cream transition">Contact Us</a>
@@ -127,7 +166,6 @@ const collections = [
           dot.classList.toggle('bg-wood/30', i !== index);
         });
 
-        // Adjust frame height to the current image
         const activeImg = slides[index];
         if (activeImg.complete && activeImg.naturalHeight) {
           const ratio = activeImg.naturalHeight / activeImg.naturalWidth;
@@ -162,10 +200,8 @@ const collections = [
         }
       }
 
-      // Initial sizing
       showSlide(0);
 
-      // Only auto-advance while hovering over this collection
       carousel.addEventListener('mouseenter', () => {
         isHovered = true;
         startTimer();
@@ -176,7 +212,6 @@ const collections = [
         stopTimer();
       });
 
-      // Dot clicks (still work anytime)
       dots.forEach((dot, i) => {
         dot.addEventListener('click', () => {
           showSlide(i);
@@ -187,8 +222,20 @@ const collections = [
         });
       });
 
-      // Resize handling
       window.addEventListener('resize', () => showSlide(current));
     });
+
+    // Auto-scroll Instagram strip
+    const instaScroll = document.querySelector('.instagram-scroll');
+    if (instaScroll) {
+      let scrollAmount = 0;
+      setInterval(() => {
+        scrollAmount += 1;
+        if (scrollAmount >= instaScroll.scrollWidth - instaScroll.clientWidth) {
+          scrollAmount = 0;
+        }
+        instaScroll.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+      }, 30);
+    }
   </script>
 </Layout>
