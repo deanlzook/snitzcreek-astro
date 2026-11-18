@@ -1,0 +1,21 @@
+---
+const nav = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/cabinetry", label: "Cabinetry" },
+  { href: "/countertops", label: "Countertops" },
+  { href: "/contact", label: "Contact" },
+];
+---
+
+<header class="fixed top-0 w-full z-50 bg-cream/95 backdrop-blur-sm border-b border-wood/10">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="font-serif text-2xl tracking-tight text-darkwood">Snitz Creek</a>
+    <nav class="hidden md:flex gap-8">
+      {nav.map(item => (
+        <a href={item.href} class="text-sm font-medium tracking-wide uppercase text-charcoal/80 hover:text-wood transition">{item.label}</a>
+      ))}
+    </nav>
+    <a href="/contact" class="hidden md:inline-flex bg-darkwood text-cream px-6 py-2.5 text-sm tracking-wide uppercase hover:bg-wood transition">Start a Project</a>
+  </div>
+</header>
