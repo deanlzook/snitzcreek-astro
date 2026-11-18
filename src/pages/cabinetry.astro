@@ -28,7 +28,7 @@ const styleImages = [
   "Doors-9997-scaled-400x400-1",
   "Doors-scaled-400x400-1"
 ].map(name => ({
-  src: `https://snitzcreek.com/wp-content/uploads/2023/02/${name}-250x250.jpg`,
+  src: `https://snitzcreek.com/wp-content/uploads/2023/02/${name}.jpg`,
   title: name.replace(/-scaled-400x400-1$/, "").replace(/-/g, " ")
 }));
 ---
@@ -46,11 +46,11 @@ const styleImages = [
     <section class="py-16 max-w-7xl mx-auto px-6">
       <h2 class="font-serif text-3xl md:text-4xl text-darkwood mb-8 text-center">Door Styles</h2>
       <p class="text-center text-charcoal/70 max-w-2xl mx-auto mb-12">A sampling of our door styles. We offer framed and frameless construction and will custom build to suit your needs.</p>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
         {styleImages.map(img => (
           <div class="group">
-            <div class="aspect-square overflow-hidden rounded mb-3">
-              <img src={img.src} alt={img.title} class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+            <div class="aspect-[3/4] bg-cream overflow-hidden rounded mb-3 flex items-center justify-center">
+              <img src={img.src} alt={img.title} class="max-w-full max-h-full object-contain group-hover:scale-105 transition duration-700" />
             </div>
             <h3 class="text-sm text-darkwood text-center">{img.title}</h3>
           </div>
