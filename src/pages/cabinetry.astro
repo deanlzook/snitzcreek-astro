@@ -2,50 +2,91 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const species = [
+  "Alder", "Butternut", "Cherry", "English Sycamore", "Hickory",
+  "Lyptus", "Mahogany", "Maple", "Oak", "Paint-Grade Maple",
+  "Walnut", "Wenge", "White Birch", "Wormy Chestnut", "Zebrawood"
+];
+
+const styleImages = [
+  { src: "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-1-1.jpg", title: "High Gloss Modern" },
+  { src: "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-3.jpg", title: "Traditional Inset Frame" },
+  { src: "https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-.jpg", title: "Traditional Shaker" },
+  { src: "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-20.jpg", title: "Vanities" },
+];
 ---
 
 <Layout title="Cabinetry | Snitz Creek Cabinet Shop">
   <Header />
   <main class="pt-24">
-    <section class="py-16 max-w-5xl mx-auto px-6">
+    <section class="py-16 max-w-4xl mx-auto px-6 text-center">
       <p class="text-wood text-sm uppercase tracking-[0.3em] mb-4">Cabinetry</p>
-      <h1 class="font-serif text-5xl md:text-6xl text-darkwood mb-8">Custom Cabinets Designed for Your Home</h1>
-      <p class="text-xl text-charcoal/70 max-w-3xl leading-relaxed">Framed or frameless. Traditional or contemporary. Our designers work with you to create cabinetry that fits your style, storage needs, and the way you live.</p>
+      <h1 class="font-serif text-5xl md:text-6xl text-darkwood mb-6">Custom Cabinetry Since 1967</h1>
+      <p class="text-xl text-charcoal/70">Framed and frameless styles, built to suit your home. Our designers guide you through every choice of style, species, finish, and hardware.</p>
     </section>
 
-    <section class="pb-20 max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <h2 class="font-serif text-3xl text-darkwood mb-4">Styles & Construction</h2>
-        <ul class="space-y-3 text-charcoal/80">
-          <li>• Framed and frameless construction</li>
-          <li>• Inset, full overlay, and traditional face frames</li>
-          <li>• Solid wood doors and drawers</li>
-          <li>• Custom finishes, stains, and painted options</li>
-          <li>• Soft-close hardware and thoughtful storage solutions</li>
-        </ul>
+    <!-- Styles -->
+    <section class="py-16 max-w-7xl mx-auto px-6">
+      <h2 class="font-serif text-3xl md:text-4xl text-darkwood mb-8 text-center">Styles</h2>
+      <p class="text-center text-charcoal/70 max-w-2xl mx-auto mb-12">We offer a broad variety of styles in both framed and frameless construction. From high-gloss modern to traditional inset and shaker, each project is custom-built for the way you live.</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {styleImages.map(img => (
+          <div class="group">
+            <div class="aspect-[4/5] overflow-hidden rounded mb-4">
+              <img src={img.src} alt={img.title} class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+            </div>
+            <h3 class="font-serif text-xl text-darkwood text-center">{img.title}</h3>
+          </div>
+        ))}
       </div>
-      <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80" alt="Custom kitchen cabinetry" class="w-full aspect-[4/5] object-cover" />
     </section>
 
-    <section class="py-16 bg-white">
-      <div class="max-w-5xl mx-auto px-6">
-        <h2 class="font-serif text-3xl text-darkwood mb-8">Wood Species</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-          <div class="border border-wood/20 p-4 text-center">Alder</div>
-          <div class="border border-wood/20 p-4 text-center">Cherry</div>
-          <div class="border border-wood/20 p-4 text-center">Maple</div>
-          <div class="border border-wood/20 p-4 text-center">Oak</div>
-          <div class="border border-wood/20 p-4 text-center">Walnut</div>
-          <div class="border border-wood/20 p-4 text-center">Hickory</div>
-          <div class="border border-wood/20 p-4 text-center">Butternut</div>
-          <div class="border border-wood/20 p-4 text-center">Paint-Grade Maple</div>
+    <!-- Species -->
+    <section class="py-16 bg-cream">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="font-serif text-3xl md:text-4xl text-darkwood mb-8 text-center">Wood Species</h2>
+        <p class="text-center text-charcoal/70 mb-10">Choose from a wide selection of solid woods. Each species brings its own character, grain, and durability. Samples are available in the showroom.</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {species.map(s => (
+            <div class="bg-white px-4 py-3 rounded text-center text-charcoal/80 border border-wood/10">{s}</div>
+          ))}
         </div>
-        <p class="mt-6 text-charcoal/60 text-sm">Plus additional species and custom options available. Visit the showroom to see samples.</p>
       </div>
     </section>
 
-    <section class="py-20 text-center">
-      <a href="/contact" class="inline-block bg-darkwood text-cream px-10 py-4 text-sm uppercase tracking-widest hover:bg-wood transition">Schedule a Design Consultation</a>
+    <!-- Finishes -->
+    <section class="py-16 max-w-4xl mx-auto px-6">
+      <h2 class="font-serif text-3xl md:text-4xl text-darkwood mb-6 text-center">Finishes</h2>
+      <div class="prose prose-lg max-w-none text-charcoal/80 leading-relaxed space-y-4">
+        <p>We offer a full range of finishes to complement your chosen style and species — natural clear coats that highlight the wood grain, stains, painted finishes, and specialty treatments.</p>
+        <p>Our designers work with you to select the right finish for appearance, durability, and the look you want. Browse the portfolio to see examples of completed finishes on real projects.</p>
+      </div>
+    </section>
+
+    <!-- Decorative Hardware -->
+    <section class="py-16 bg-cream">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="font-serif text-3xl md:text-4xl text-darkwood mb-6 text-center">Decorative Hardware</h2>
+        <div class="prose prose-lg max-w-none text-charcoal/80 leading-relaxed space-y-4">
+          <p>The right hardware completes the look. We offer industry-leading brands of pulls, knobs, and decorative hardware to elevate the style of your cabinetry.</p>
+          <p>Our team helps you navigate the options so the hardware complements your design — whether traditional, modern, or transitional.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Warranty -->
+    <section class="py-16 max-w-4xl mx-auto px-6">
+      <h2 class="font-serif text-3xl md:text-4xl text-darkwood mb-6 text-center">Warranty</h2>
+      <div class="prose prose-lg max-w-none text-charcoal/80 leading-relaxed space-y-4">
+        <p>We stand behind the quality of our work. Snitz Creek Cabinet Shop provides a warranty on craftsmanship and materials. Details are reviewed with you during the design and order process so you know exactly what is covered.</p>
+        <p>Our reputation has been built over more than 50 years of delivering cabinetry that lasts. Contact us with any questions about coverage.</p>
+      </div>
+    </section>
+
+    <section class="py-16 bg-darkwood text-cream text-center">
+      <h2 class="font-serif text-3xl md:text-4xl mb-4">Ready to design your cabinetry?</h2>
+      <a href="/contact" class="inline-block mt-6 bg-gold text-charcoal px-10 py-4 text-sm uppercase tracking-widest font-medium hover:bg-cream transition">Start a Project</a>
     </section>
   </main>
   <Footer />
