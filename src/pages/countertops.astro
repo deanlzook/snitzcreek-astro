@@ -2,41 +2,38 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const surfaces = [
+  { name: "Natural Stone", src: "https://snitzcreek.com/wp-content/uploads/2023/03/Headercountertops.jpg", desc: "Granite, marble, and quartzite for timeless beauty and durability." },
+  { name: "Solid Surface", src: "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-1-1.jpg", desc: "Seamless, hygienic, and available in a wide range of colors and patterns." },
+  { name: "Laminate", src: "https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-.jpg", desc: "Practical, durable, and available in many looks and textures." },
+  { name: "Soapstone", src: "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-3.jpg", desc: "Natural, heat-resistant, and develops a beautiful patina over time." },
+  { name: "Glass", src: "https://snitzcreek.com/wp-content/uploads/2023/02/modern-kitchen.jpg", desc: "Unique, modern, and easy to clean for distinctive spaces." },
+  { name: "Wood Tops", src: "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-20.jpg", desc: "Warm butcher block and custom wood surfaces that match your cabinetry." },
+  { name: "Metal", src: "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-2.jpg", desc: "Industrial or contemporary metal surfaces for a distinctive look." }
+];
 ---
 
 <Layout title="Countertops | Snitz Creek Cabinet Shop">
   <Header />
   <main class="pt-24">
-    <section class="py-16 max-w-5xl mx-auto px-6">
+    <section class="py-16 max-w-5xl mx-auto px-6 text-center">
       <p class="text-wood text-sm uppercase tracking-[0.3em] mb-4">Countertops</p>
       <h1 class="font-serif text-5xl md:text-6xl text-darkwood mb-8">The Perfect Surface for Your Cabinetry</h1>
-      <p class="text-xl text-charcoal/70 max-w-3xl leading-relaxed">Your countertop choice depends on the look, feel, and function you want. We help you select the right material to complement your cabinets.</p>
+      <p class="text-xl text-charcoal/70 max-w-3xl mx-auto leading-relaxed">Today, there are many countertop options from which to choose. Your choice will depend on the appearance, feel, or function you prefer in your room.</p>
     </section>
 
-    <section class="pb-20 max-w-6xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="border border-wood/10 p-6">
-        <h3 class="font-serif text-2xl mb-2">Natural Stone</h3>
-        <p class="text-charcoal/70 text-sm">Granite, marble, and quartzite for timeless beauty and durability.</p>
-      </div>
-      <div class="border border-wood/10 p-6">
-        <h3 class="font-serif text-2xl mb-2">Solid Surface</h3>
-        <p class="text-charcoal/70 text-sm">Seamless, hygienic, and available in a wide range of colors and patterns.</p>
-      </div>
-      <div class="border border-wood/10 p-6">
-        <h3 class="font-serif text-2xl mb-2">Quartz</h3>
-        <p class="text-charcoal/70 text-sm">Engineered for consistency, low maintenance, and modern aesthetics.</p>
-      </div>
-      <div class="border border-wood/10 p-6">
-        <h3 class="font-serif text-2xl mb-2">Wood Tops</h3>
-        <p class="text-charcoal/70 text-sm">Warm butcher block and custom wood surfaces that match your cabinetry.</p>
-      </div>
-      <div class="border border-wood/10 p-6">
-        <h3 class="font-serif text-2xl mb-2">Soapstone</h3>
-        <p class="text-charcoal/70 text-sm">Natural, heat-resistant, and develops a beautiful patina over time.</p>
-      </div>
-      <div class="border border-wood/10 p-6">
-        <h3 class="font-serif text-2xl mb-2">Laminate & Others</h3>
-        <p class="text-charcoal/70 text-sm">Practical options including laminate, glass, and metal when the project calls for it.</p>
+    <section class="pb-20 max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {surfaces.map(s => (
+          <div class="group">
+            <div class="aspect-[4/3] overflow-hidden rounded mb-4 bg-cream">
+              <img src={s.src} alt={s.name} class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+            </div>
+            <h3 class="font-serif text-2xl text-darkwood mb-2">{s.name}</h3>
+            <p class="text-charcoal/70 text-sm">{s.desc}</p>
+          </div>
+        ))}
       </div>
     </section>
 
