@@ -4,10 +4,25 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const species = [
-  "Alder", "Butternut", "Cherry", "English Sycamore", "Hickory",
-  "Lyptus", "Mahogany", "Maple", "Oak", "Paint-Grade Maple",
-  "Walnut", "Wenge", "White Birch", "Wormy Chestnut", "Zebrawood"
-];
+  { name: "Alder", file: "Alder" },
+  { name: "Butternut", file: "Butternut" },
+  { name: "Cherry", file: "Cherry" },
+  { name: "English Sycamore", file: "English-Sycamore" },
+  { name: "Hickory", file: "Hickory" },
+  { name: "Lyptus", file: "Lyptus" },
+  { name: "Mahogany", file: "Mahogany" },
+  { name: "Maple", file: "Maple" },
+  { name: "Oak", file: "Oak" },
+  { name: "Paint-Grade Maple", file: "Paint-Grade-Maple" },
+  { name: "Walnut", file: "Walnut" },
+  { name: "Wenge", file: "Wenge" },
+  { name: "White Birch", file: "White-Birch" },
+  { name: "Wormy Chestnut", file: "Wormy-Chestnut" },
+  { name: "Zebrawood", file: "ZebraWood" }
+].map(s => ({
+  ...s,
+  src: `https://snitzcreek.com/wp-content/uploads/2023/02/${s.file}.jpg`
+}));
 
 const styleImages = [
   "Doors-9906-scaled-400x400-1",
@@ -60,12 +75,17 @@ const styleImages = [
 
     <!-- Species -->
     <section class="py-16 bg-cream">
-      <div class="max-w-4xl mx-auto px-6">
+      <div class="max-w-7xl mx-auto px-6">
         <h2 class="font-serif text-3xl md:text-4xl text-darkwood mb-8 text-center">Wood Species</h2>
-        <p class="text-center text-charcoal/70 mb-10">Choose from a wide selection of solid woods. Each species brings its own character, grain, and durability. Samples are available in the showroom.</p>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <p class="text-center text-charcoal/70 mb-10 max-w-2xl mx-auto">Choose from a wide selection of solid woods. Each species brings its own character, grain, and durability. Samples are available in the showroom.</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
           {species.map(s => (
-            <div class="bg-white px-4 py-3 rounded text-center text-charcoal/80 border border-wood/10">{s}</div>
+            <div class="group">
+              <div class="aspect-[3/4] bg-white overflow-hidden rounded mb-3 flex items-center justify-center border border-wood/10">
+                <img src={s.src} alt={s.name} class="max-w-full max-h-full object-contain group-hover:scale-105 transition duration-700" />
+              </div>
+              <h3 class="text-sm text-darkwood text-center">{s.name}</h3>
+            </div>
           ))}
         </div>
       </div>
