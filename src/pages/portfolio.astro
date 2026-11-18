@@ -51,17 +51,6 @@ const collections = [
     ]
   }
 ];
-
-const instagramImages = [
-  "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-1-1.jpg",
-  "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-3.jpg",
-  "https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-.jpg",
-  "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-2.jpg",
-  "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-22.jpg",
-  "https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-2.jpg",
-  "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-4.jpg",
-  "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-20.jpg",
-];
 ---
 
 <Layout title="Portfolio | Snitz Creek Cabinet Shop">
@@ -107,40 +96,13 @@ const instagramImages = [
       ))}
     </section>
 
-    <!-- Follow Us on Instagram -->
+    <!-- Follow Us on Instagram — Elfsight widget (same as original site) -->
     <section class="py-20 bg-cream border-t border-wood/20">
       <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-10">
-          <h2 class="font-serif text-3xl md:text-4xl text-darkwood mb-4">Follow Us on Instagram</h2>
-          <p class="text-charcoal/70">See more of our work and behind-the-scenes moments</p>
-          <a href="https://www.instagram.com/snitzcreekcabinetshop/" target="_blank" rel="noopener" class="inline-block mt-4 text-wood hover:text-darkwood text-lg font-medium">@snitzcreekcabinetshop</a>
+        <div class="text-center mb-8">
+          <h2 class="font-serif text-3xl md:text-4xl text-darkwood">Follow Us on Instagram</h2>
         </div>
-
-        <div class="relative">
-          <button type="button" class="insta-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-16 bg-cream/90 hover:bg-gold text-darkwood flex items-center justify-center rounded-r shadow-md transition">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-          </button>
-
-          <div class="instagram-scroll flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory" style="scrollbar-width: none; -ms-overflow-style: none;">
-            {instagramImages.map((src, i) => (
-              <button 
-                type="button"
-                class="insta-item flex-shrink-0 snap-center"
-                data-index={i}
-              >
-                <img 
-                  src={src} 
-                  alt="Snitz Creek on Instagram" 
-                  class="h-64 w-auto object-cover rounded hover:opacity-90 transition"
-                />
-              </button>
-            ))}
-          </div>
-
-          <button type="button" class="insta-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-16 bg-cream/90 hover:bg-gold text-darkwood flex items-center justify-center rounded-l shadow-md transition">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </button>
-        </div>
+        <div class="elfsight-app-4afa230b-191b-4f6c-a826-c94c497cc9b9" data-elfsight-app-lazy></div>
       </div>
     </section>
 
@@ -151,21 +113,7 @@ const instagramImages = [
   </main>
   <Footer />
 
-  <!-- Vertical Lightbox Modal -->
-  <div id="insta-lightbox" class="fixed inset-0 z-50 hidden bg-charcoal/95 overflow-y-auto">
-    <div class="min-h-screen flex flex-col items-center py-8 px-4">
-      <button id="insta-close" class="fixed top-4 right-4 text-cream text-4xl hover:text-gold z-10">&times;</button>
-      <div id="insta-lightbox-content" class="max-w-3xl w-full space-y-6">
-        <!-- images inserted by JS -->
-      </div>
-    </div>
-  </div>
-
-  <style>
-    .instagram-scroll::-webkit-scrollbar {
-      display: none;
-    }
-  </style>
+  <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
 
   <script>
     const carousels = document.querySelectorAll('.collection-carousel');
@@ -248,62 +196,6 @@ const instagramImages = [
       });
 
       window.addEventListener('resize', () => showSlide(current));
-    });
-
-    // Instagram scroll with arrows
-    const instaScroll = document.querySelector('.instagram-scroll');
-    const prevBtn = document.querySelector('.insta-prev');
-    const nextBtn = document.querySelector('.insta-next');
-
-    if (instaScroll && prevBtn && nextBtn) {
-      const scrollStep = 300;
-
-      prevBtn.addEventListener('click', () => {
-        instaScroll.scrollBy({ left: -scrollStep, behavior: 'smooth' });
-      });
-
-      nextBtn.addEventListener('click', () => {
-        instaScroll.scrollBy({ left: scrollStep, behavior: 'smooth' });
-      });
-    }
-
-    // Vertical lightbox for Instagram images
-    const instaItems = document.querySelectorAll('.insta-item');
-    const lightbox = document.getElementById('insta-lightbox');
-    const lightboxContent = document.getElementById('insta-lightbox-content');
-    const closeBtn = document.getElementById('insta-close');
-
-    const instaImageSrcs = [
-      "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-1-1.jpg",
-      "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-3.jpg",
-      "https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-.jpg",
-      "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-2.jpg",
-      "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-22.jpg",
-      "https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-2.jpg",
-      "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-4.jpg",
-      "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-20.jpg",
-    ];
-
-    instaItems.forEach((item) => {
-      item.addEventListener('click', () => {
-        lightboxContent.innerHTML = instaImageSrcs.map(src => 
-          `<img src="${src}" class="w-full h-auto object-contain rounded" alt="" />`
-        ).join('');
-        lightbox.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    closeBtn.addEventListener('click', () => {
-      lightbox.classList.add('hidden');
-      document.body.style.overflow = '';
-    });
-
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) {
-        lightbox.classList.add('hidden');
-        document.body.style.overflow = '';
-      }
     });
   </script>
 </Layout>
