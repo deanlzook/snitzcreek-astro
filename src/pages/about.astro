@@ -2,6 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const youtubeVideos = [
+  { id: "X7LsqXgP3OE", title: "Snitz Creek Cabinet Shop" },
+  { id: "X7LsqXgP3OE", title: "Snitz Creek Cabinet Shop" },
+  { id: "X7LsqXgP3OE", title: "Snitz Creek Cabinet Shop" },
+];
 ---
 
 <Layout title="About | Snitz Creek Cabinet Shop">
@@ -22,7 +28,6 @@ import Footer from '../components/Footer.astro';
         <h2 class="font-serif text-3xl md:text-4xl text-darkwood mb-6">Snitz Green</h2>
         
         <div class="grid md:grid-cols-2 gap-8 items-start mb-8">
-          <!-- Drone photo placeholder — replace src with actual image URL -->
           <img 
             src="https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-.jpg" 
             alt="Aerial view of the land" 
@@ -38,13 +43,42 @@ import Footer from '../components/Footer.astro';
           <div class="prose prose-lg text-charcoal/80 leading-relaxed">
             <p>Holding the earth in our hands is a reminder of the responsibility we have to the next generation — to leave the land better than we found it, and to build things that last.</p>
           </div>
-          <!-- Earth in hands photo placeholder — replace src with actual image URL -->
           <img 
             src="https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-3.jpg" 
             alt="Hands holding the earth" 
             class="w-full h-auto object-cover rounded"
           />
         </div>
+      </div>
+
+      <!-- YouTube Videos -->
+      <div class="mt-20 pt-12 border-t border-wood/20">
+        <h2 class="font-serif text-3xl md:text-4xl text-darkwood mb-8">Snitz Creek TV</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          {youtubeVideos.map((video) => (
+            <a 
+              href={`https://www.youtube.com/watch?v=${video.id}`} 
+              target="_blank" 
+              rel="noopener"
+              class="group block"
+            >
+              <div class="relative aspect-video overflow-hidden rounded bg-cream">
+                <img 
+                  src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`} 
+                  alt={video.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                />
+                <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition">
+                  <div class="w-14 h-14 rounded-full bg-cream/90 flex items-center justify-center group-hover:bg-gold transition">
+                    <svg class="w-6 h-6 text-darkwood ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 text-sm font-medium text-darkwood group-hover:text-wood">{video.title}</p>
+            </a>
+          ))}
+        </div>
+        <p class="text-sm text-charcoal/50 mt-6">Send me the exact YouTube video IDs if these should be different.</p>
       </div>
 
       <div class="mt-16 pt-12 border-t border-wood/20">
