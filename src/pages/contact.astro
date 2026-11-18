@@ -24,18 +24,22 @@ import Footer from '../components/Footer.astro';
         </div>
       </div>
 
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
+      <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
+        <input type="hidden" name="subject" value="New project inquiry from snitzcreek.com" />
+        <input type="hidden" name="from_name" value="Snitz Creek Contact Form" />
+        
         <div class="grid md:grid-cols-2 gap-6">
           <input type="text" name="name" placeholder="Name" required class="w-full border border-wood/30 bg-white px-4 py-3 focus:outline-none focus:border-wood" />
           <input type="email" name="email" placeholder="Email" required class="w-full border border-wood/30 bg-white px-4 py-3 focus:outline-none focus:border-wood" />
         </div>
         <input type="tel" name="phone" placeholder="Phone" class="w-full border border-wood/30 bg-white px-4 py-3 focus:outline-none focus:border-wood" />
         <textarea name="message" rows="5" placeholder="Tell us about your project" required class="w-full border border-wood/30 bg-white px-4 py-3 focus:outline-none focus:border-wood"></textarea>
-        <input type="hidden" name="_subject" value="New project inquiry from snitzcreek.com" />
+        
         <button type="submit" class="bg-darkwood text-cream px-10 py-4 text-sm uppercase tracking-widest hover:bg-wood transition">Send Message</button>
       </form>
 
-      <p class="text-sm text-charcoal/50 mt-6">Replace YOUR_FORM_ID in the form action with your actual Formspree form ID.</p>
+      <p class="text-sm text-charcoal/50 mt-6">Replace YOUR_ACCESS_KEY with your free Web3Forms access key.</p>
     </section>
   </main>
   <Footer />
