@@ -50,6 +50,16 @@ const styleImages = [
 const finishImages = [
   "2-2", "3-1", "4-1", "5-1", "6-1", "7-1", "8-1", "9-1", "10-1", "11-1", "12-1", "9750_CrackledPaint"
 ].map(name => `https://snitzcreek.com/wp-content/uploads/2023/02/${name}.jpg`);
+
+const accessoryImages = [
+  { src: "https://snitzcreek.com/wp-content/uploads/2023/02/Rollout_Shelves.png", title: "Rollout Shelves" },
+  { src: "https://snitzcreek.com/wp-content/uploads/2023/02/corner_solution.png", title: "Corner Solutions" },
+  { src: "https://snitzcreek.com/wp-content/uploads/2023/02/KnifeInserts-scaled-1.jpg", title: "Drawer Inserts" },
+  { src: "https://snitzcreek.com/wp-content/uploads/2023/02/trash_rollout.png", title: "Trash Rollouts" },
+  { src: "https://snitzcreek.com/wp-content/uploads/2023/02/MixerLiftButton.jpg", title: "Mixer Lifts" },
+  { src: "https://snitzcreek.com/wp-content/uploads/2023/02/Tilt-Out2-scaled-1.jpg", title: "Sink Tiltouts" },
+  { src: "https://snitzcreek.com/wp-content/uploads/2023/02/Pulloutcaddei-scaled-1.jpg", title: "Pullout Caddies" }
+];
 ---
 
 <Layout title="Cabinetry | Snitz Creek Cabinet Shop">
@@ -118,6 +128,22 @@ const finishImages = [
           <p>The right hardware completes the look. We offer industry-leading brands of pulls, knobs, and decorative hardware to elevate the style of your cabinetry.</p>
           <p>Our team helps you navigate the options so the hardware complements your design — whether traditional, modern, or transitional.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- Accessories -->
+    <section class="py-16 max-w-7xl mx-auto px-6">
+      <h2 class="font-serif text-3xl md:text-4xl text-darkwood mb-6 text-center">Accessories</h2>
+      <p class="text-center text-charcoal/70 max-w-2xl mx-auto mb-10">Snitz Creek Cabinet Shop provides a wide range of accessories. Please ask us for solutions to your storage dilemmas.</p>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {accessoryImages.map(img => (
+          <div class="group">
+            <div class="aspect-[3/4] bg-cream overflow-hidden rounded mb-3 flex items-center justify-center">
+              <img src={img.src} alt={img.title} class="max-w-full max-h-full object-contain group-hover:scale-105 transition duration-700" />
+            </div>
+            <h3 class="text-sm text-darkwood text-center">{img.title}</h3>
+          </div>
+        ))}
       </div>
     </section>
 
