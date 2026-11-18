@@ -22,15 +22,23 @@ import Footer from '../components/Footer.astro';
           <p><a href="tel:7172739861" class="text-wood hover:text-darkwood">(717) 273-9861</a></p>
           <p class="mt-2"><a href="mailto:info@snitzcreek.com" class="text-wood hover:text-darkwood">info@snitzcreek.com</a></p>
           
-          <div class="mt-8">
-            <a 
-              href="https://g.page/r/CaabX2lxkv06EBM/review" 
-              target="_blank" 
-              rel="noopener"
-              class="inline-flex items-center gap-2 bg-gold text-charcoal px-6 py-3 text-sm uppercase tracking-widest font-medium hover:bg-cream transition"
-            >
-              Leave a Google Review
-            </a>
+          <div class="mt-8 flex items-start gap-6">
+            <div>
+              <a 
+                href="https://g.page/r/CaabX2lxkv06EBM/review" 
+                target="_blank" 
+                rel="noopener"
+                class="inline-flex items-center gap-2 bg-gold text-charcoal px-6 py-3 text-sm uppercase tracking-widest font-medium hover:bg-cream transition"
+              >
+                Leave a Google Review
+              </a>
+              <p class="mt-3 text-sm text-charcoal/60">or scan the QR code</p>
+            </div>
+            <img 
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAYAAABRRIOnAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAhKADAAQAAAABAAAAhAAAAADOBoV4AAAMj0lEQVR4Ae2ci24bSQ5FnUX+/5dnQw+OctS6zSo9Fgu4aWBB1n1Vq1RDOd44v76+vv7587+3vv7559+IX79+PeTAmXhFl3LITHlwZ5W8lRddyll5k4e8d7wp95W8lPOfBA523RP4zUvn5rJe1dWN7PLMkUOtfc3zHObB0FELTzr0q0qOM+jh3t0jPYOzjzz7e99OX7oV3+0xE+J4Ohdf3yYE5+AbCeba3T5zXY517r1P9R1XfLdH8cevlGcs5ZknL2HJi971WZ332vWy30rvbDwzITiJqd8nMBdiLsLdCTx8ZNyxTy52R5R1jK1dLD0SGYkrjGyqdcmbMHvhP4X5eeif3QPfu3UmxLsn+MP8H50Q6Wy46cX5v6ik3cGc4ewdb9I4D94Ye1DRVE2YefqVjv1Wut08dK/UmRCvnNoP9syF+MFv7isv7eEjY3ds7W7GODzTw3tfMHt2MTzOo3cGGHpX69xbU70z0CXMPnhqcXit+0TvPXbzZkLsntRFdLcJ8elbyu107v8bS+9pej7rPv3MZKd9E4bedaUzb99OPxNi55QupJkLcaE3e+el/vozEt/+CzJpo25seUt0xlJeh5FhTcqzLvH4rQNL1Rm7HnKS1xg617THymP/Tj8TYueULqS5fVOZXjM3Mt1CuPIlPmH2pP3Ako48c2BU/DvVOTt679F5rSO306OpmnQpz57Upxx0zku6mRCc1NTvE5gLMRfh7gTajwyPlzvXn0Xi0gg6+mq90pGddHCrHOvSM8B7j10s5e1i7GE9WHoW6+jRsz6rKx28950JcXaaF8V/+3bUGXBrfB7WwBuzlj7pnsXIcvW+5JmnTzrr4RNGxlm1B03C2APNWe105tIeZFrXYc7AY2wmBKc39fsE5kLMRbg7gd8eF3fMnwUj5YjXuvMVjzfpXsHIq+zjl7mUfdTXeleXvAnjGXZz0TvLXviE2UO/0sGTi+9YZ0IcT+Ti69sfO7k53KQ6F3q4wtzXur6Sbhf7N+FvBuudmp5lFyOf56w1fcpA72odXvNdb71zjp6OK61zjt60tj5lz4RIp3ZhbC7Ehd/89NJvP4fwKDkKzTFmjB31tUaXuOS1PvHkdByaqilvF3NO6slZPQs8ej8XXMovbMXjczbYrhe960wIn8b0X7c/dnLTfLvA0jklzl481rmHTx643epc8qi7Gc/oUrafgaykA0t6fGcVDxmlo4crjB6uML7gWFc1NhPCJzP911yIuQR3J3D7OQSoxwdYGj1wrrvepHNO6nmG5IWzL+kSn7xJt8LgnZeeAcw6vHCsqyadefqkcx48Fd+xzoQ4nsjF1w8TwjeIG0Z95qzIWXnh0dceYM/shxZvyksY+vLDUwuD38XKs/NFrrXew/gnevZb7TET4hOn/YMy5kL8oDfzEy+l/unZu1/UWY2U3U3TiOow5/IM6BNXGDx6Y8mDvjg8xuzp+s4LV/6UDW8OzHvCd1zpO77jvJf7mRA+jekff1LJzfTZ+KatePuOvXPgErbDoamansk8fdrLGDkJI8P1FR3+5DWGzrV7vuRF74xVPxNidUIX4+dCXOwNX73ch28qVwb4NKLgVtWjLOWYJwtdx6Gtat2u1x5nHXvyjCdv0tmz06dc+7o9kjfprZsJ4dOd/u83lZyFbwvY6lYlXZfjPHTG3JONjnVVdImzjh4966rJu6tzDr29KXtX5xw8qbLHSg+PvrLAqIXNhKhTmK/bCcyFuB3FNHUCt28qGRtppCTMxwdPhjn36IwlT6frOOem3t5u346rXPiUlzA/CzwZ5lb9O94um9zSzIToTuqC3O0fHeOW+OYmjDOCqzWehKGvCo/enHt0xuhXXnSuXZ51qWc/Z4BZbx4cnbmEHfW1xoMejTlju33Ks3cmhE9j+vnImDtwfwIPf2OKUVWyNF7gE5cw9Gd5PI51YKu8pEs5z+rQu6ZnMU+/q0NfFY+fHcw6+o4rjXOOnsShqTofGT6N6f/+sTOdBTdxdas6b+KMPZvNMzkj9c7FYyx5Epa8HeaMbj8ySr+rI7vTozmraV9jMyHOTu6i+FyIi77xZy/79k0lY8PjyD0B6Fi7Jr0xvCvMmfTJC/dKJS95/Xzw1icenTl74Lu60jubnM6T9Akjq+pMCJ/G9F+3CcHN8Y0DS+dkzh608IlDU7XTwVlnL33aw150qVqXcpIHnb1JB4/eGrgVlrz20Duv8yTO3pkQnOjU7xOYCzEX4e4Ebv9gCKjHB1iqafRYB+88sKQz1vXOIJtaPnhql2X9mY5s5+1iZKJnvbMv2uSFc/XzGadf8ehmQnASU79P4PYXZDiPdJN2bykZrqs8eO8B5pzU43lWn7LOMLLZq3QJww9Xa3vgqUlnDF2qXW7SF7abPRPi7AQvis+FuOgbf/aybz+HSII0mtLoQWcOLOUmLHlXWMphX3uTDsy65AVD72qv8WOfdM5d8eShoxbuHHTUpEsY+qozIXwa0/e/qMNtSrcwYek8rSNvpYNfebs8Mqo6x/ixJ8/6hOF7RYfXlRz2Ko4eznr3n9bNhPDpTj8fGXMH7k/g9nMIRo9pxlXirEt98oIlfdoj6a1LPNnWgVmf+Hd0eLvc0vgZ8LxT037dHiv9fGS88278QO/tF3V4bel2rW4V3ld0ab/dvLQf3i63NO942cMZaT/4xJGxqmRYt5tnb+exbiaET3r6+aZy7sD9CbQ/qUTqccN4oZbGPJ7dSo4zwJwB33GlTzw55lLesxi5z+xrDz37sn6m8ppWGehStr3zkZFO6MLY7ZtKbolvUof5zPCgLy5heOBqjSdh6KvCozdmHX3SvYKRx/6sj9XZR27lPerfXadnSc+AztxMiHdP/4f550L8sDf03Zfz8E0lY6SCPUqOG3VcacmxDsxZ8ImzDh792R72vNp7DzLYn3XVpDNPn7xwZ7XLdh46Y2TCsa5qXeJnQvi0pv/7izrdWaRbZQxvunFwZ5Uce8HsMW+8+pU+8ccM56S9EpYyrOv2XenwWpf2SzqwpHde0s2ESKd2YWwuxIXf/PTSH76pTCJjjBmPHng41seaPGjs7XToXZ/Vl5f97AVzNthKhwd9rfEYQ+eadGDW0SfOeyQe70o3E4KTmvp9Au1PKjkj3yowV26kdWDWdb29SUeedWBJnzB74Z3R8ebwGCPPFZ0xenvRGUMHx/pYk+eoqXXKSd6ZEOn0LozNhbjwm59e+sNHhkXdmEmcvfQeS8kD33GVlfi0B5hr8qZ9wV7x4kkZcFW7Z1npzNOn/dIe6Fd1JsTqhC7GP/yt63TjfCbcvld0yQvmPeh390DvmrzeK/H20+OxfhcjY1XJs877GT/rnYH3FWwmxNkJXxSfC3HRN/7sZT/8k0IWMnIYQYkzZh09GaUDSx7r4BPmDHrrOgyO/LOa8s60HU6O900YGdaBoWdd1brEW7vTO28mxM6JXUhz+6aS1+wb55sD31V70TkD3hi6VX3H22WTa42fr+M7rvLgP5139qzGX+1nQrx6cj/UNxfih76xr76s2zeVjDVqBTLyXg0/872Tu+tNr2OF8bxpj5U3echLdTfPufYcM5PuFWwmxPFkL76+/X8Z6Ry4kb5p6OBYV7VuxdtXvfXOQWceDF3HHbPx7ta0B9gqIz0XnpTR6cuHZ6VjD9fkTdhMCJ/a9PPb33MH7k+g/ci4l65XaZQxlsoNv4ulHd/xOs85xqvnOY13euvck/OK1zn05LGu2mWv9Imfjwyf7vRfv9MtefZcuKVU+1/JJ8feDvN+nc55eIzhhasKlnTG8KC3F64qHuvMv9qTW/6UnTD2MjcTglOZ+n0CcyHmItydwO0XdTw27hQnC4+oJIF3Lhi1fOaPOR1nrfPA7U180oG54l3lwaN3RupXOvKSN2G7+tW+MyHS6V4Yu00IzmB1g3ZvInmueNMeCUNfGfC7mPdNPXmJM+b9jB/73byjb7V2Ls9izP0qq3gyrHXGTAifzPTzk8q5A/cn8PCRcU8/t/LowWmsG1eJI6Mq/CrPHvpdr7Px/q8qz+R870+fdAlzDj0ZtaZfeecjg9Ob+n0CH50Qvn3djbSO9wF9reGNoXOFR7/yWkcOGaydUX3ire36tB9653Y69FXtMX7sU17CUt5MiONpXnw9F+LiF+D48h8+MtJoOZqeWXssddnm7GEv82DoqODHivdTOvLJrTXZKwyvK15ju733O3o6zlrrZkL4ZKb/++9UvnNL0zly65xLD1c+sJRhrNOt8p71rvL8XM/2PEvaw1jKTXyXt5th3UwIn8b085PKuQP3J/Bfh8G8R03teHAAAAAASUVORK5CYII=" 
+              alt="Google Review QR Code" 
+              class="w-28 h-28"
+            />
           </div>
         </div>
       </div>
