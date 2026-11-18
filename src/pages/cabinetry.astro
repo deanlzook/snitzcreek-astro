@@ -10,11 +10,27 @@ const species = [
 ];
 
 const styleImages = [
-  { src: "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-1-1.jpg", title: "High Gloss Modern" },
-  { src: "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-3.jpg", title: "Traditional Inset Frame" },
-  { src: "https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-.jpg", title: "Traditional Shaker" },
-  { src: "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-20.jpg", title: "Vanities" },
-];
+  "Doors-9906-scaled-400x400-1",
+  "Doors-9914-scaled-400x400-1",
+  "Doors-9918-scaled-400x400-1",
+  "Doors-9922-scaled-400x400-1",
+  "Doors-9934-scaled-400x400-1",
+  "Doors-9942-scaled-400x400-1",
+  "Doors-9952-scaled-400x400-1",
+  "Doors-9963-scaled-400x400-1",
+  "Doors-9969-scaled-400x400-1",
+  "Doors-9975-scaled-400x400-1",
+  "Doors-9977-scaled-400x400-1",
+  "Doors-9983-scaled-400x400-1",
+  "Doors-9988-scaled-400x400-1",
+  "Doors-9994-scaled-400x400-1",
+  "Doors-9995-scaled-400x400-1",
+  "Doors-9997-scaled-400x400-1",
+  "Doors-scaled-400x400-1"
+].map(name => ({
+  src: `https://snitzcreek.com/wp-content/uploads/2023/02/${name}-250x250.jpg`,
+  title: name.replace(/-scaled-400x400-1$/, "").replace(/-/g, " ")
+}));
 ---
 
 <Layout title="Cabinetry | Snitz Creek Cabinet Shop">
@@ -29,14 +45,14 @@ const styleImages = [
     <!-- Styles -->
     <section class="py-16 max-w-7xl mx-auto px-6">
       <h2 class="font-serif text-3xl md:text-4xl text-darkwood mb-8 text-center">Styles</h2>
-      <p class="text-center text-charcoal/70 max-w-2xl mx-auto mb-12">We offer a broad variety of styles in both framed and frameless construction. From high-gloss modern to traditional inset and shaker, each project is custom-built for the way you live.</p>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <p class="text-center text-charcoal/70 max-w-2xl mx-auto mb-12">A sampling of our door styles. We offer framed and frameless construction and will custom build to suit your needs.</p>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {styleImages.map(img => (
           <div class="group">
-            <div class="aspect-[4/5] overflow-hidden rounded mb-4">
+            <div class="aspect-square overflow-hidden rounded mb-3">
               <img src={img.src} alt={img.title} class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
             </div>
-            <h3 class="font-serif text-xl text-darkwood text-center">{img.title}</h3>
+            <h3 class="text-sm text-darkwood text-center">{img.title}</h3>
           </div>
         ))}
       </div>
