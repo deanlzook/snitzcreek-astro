@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Contact | Snitz Creek Cabinet Shop">
+  <Header />
+  <main class="pt-24">
+    <section class="py-20 max-w-3xl mx-auto px-6">
+      <h1 class="font-serif text-5xl text-darkwood mb-4">Start a Project</h1>
+      <p class="text-lg text-charcoal/70 mb-12">We’d love to help you create cabinetry that fits your home and your life. Visit the showroom or get in touch.</p>
+
+      <div class="grid md:grid-cols-2 gap-12 mb-16">
+        <div>
+          <h2 class="font-serif text-2xl mb-4">Showroom</h2>
+          <p class="leading-relaxed">2020 Cornwall Road<br>Lebanon, PA 17042</p>
+          <p class="mt-4 text-sm text-charcoal/70">Monday – Friday<br>8:00 am – 5:00 pm</p>
+        </div>
+        <div>
+          <h2 class="font-serif text-2xl mb-4">Get in Touch</h2>
+          <p><a href="tel:7172739861" class="text-wood hover:text-darkwood">(717) 273-9861</a></p>
+          <p class="mt-2"><a href="mailto:customerservice@snitzcreek.com" class="text-wood hover:text-darkwood">customerservice@snitzcreek.com</a></p>
+        </div>
+      </div>
+
+      <form class="space-y-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <input type="text" placeholder="Name" class="w-full border border-wood/30 bg-white px-4 py-3 focus:outline-none focus:border-wood" />
+          <input type="email" placeholder="Email" class="w-full border border-wood/30 bg-white px-4 py-3 focus:outline-none focus:border-wood" />
+        </div>
+        <input type="tel" placeholder="Phone" class="w-full border border-wood/30 bg-white px-4 py-3 focus:outline-none focus:border-wood" />
+        <textarea rows="5" placeholder="Tell us about your project" class="w-full border border-wood/30 bg-white px-4 py-3 focus:outline-none focus:border-wood"></textarea>
+        <button type="submit" class="bg-darkwood text-cream px-10 py-4 text-sm uppercase tracking-widest hover:bg-wood transition">Send Message</button>
+      </form>
+    </section>
+  </main>
+  <Footer />
+</Layout>
