@@ -62,25 +62,34 @@ const collections = [
       <p class="text-xl text-charcoal/70 max-w-2xl mx-auto">A selection of kitchens, baths, and custom cabinetry projects. Each piece is designed and built for the people who live with it.</p>
     </section>
 
-    <!-- Collections -->
-    <section class="pb-24 max-w-7xl mx-auto px-6 space-y-20">
+    <!-- Collections as Carousels -->
+    <section class="pb-24 max-w-7xl mx-auto px-6 space-y-24">
       {collections.map((collection, colIndex) => (
-        <div>
+        <div class="collection-carousel" data-collection={colIndex}>
           <h2 class="font-serif text-3xl md:text-4xl text-darkwood mb-8">{collection.title}</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          
+          <div class="relative aspect-[16/9] md:aspect-[16/7] overflow-hidden bg-cream">
             {collection.images.map((src, imgIndex) => (
+              <img
+                src={src}
+                alt={collection.title}
+                class={`collection-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}`}
+                data-collection={colIndex}
+                data-index={imgIndex}
+              />
+            ))}
+          </div>
+
+          <!-- Dots -->
+          <div class="flex justify-center gap-3 mt-6">
+            {collection.images.map((_, imgIndex) => (
               <button
                 type="button"
-                class="group relative overflow-hidden aspect-[4/5] cursor-pointer"
-                data-col={colIndex}
-                data-img={imgIndex}
-                onclick={`openLightbox(${colIndex}, ${imgIndex})`}
-              >
-                <img src={src} alt={collection.title} class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
-                <div class="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-6">
-                  <p class="text-cream font-serif text-xl">{collection.title}</p>
-                </div>
-              </button>
+                class={`collection-dot w-3 h-3 rounded-full transition ${imgIndex === 0 ? 'bg-gold' : 'bg-wood/30'}`}
+                data-collection={colIndex}
+                data-index={imgIndex}
+                aria-label={`Go to photo ${imgIndex + 1}`}
+              ></button>
             ))}
           </div>
         </div>
@@ -94,112 +103,43 @@ const collections = [
   </main>
   <Footer />
 
-  <!-- Lightbox -->
-  <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden items-center justify-center">
-    <button onclick="closeLightbox()" class="absolute top-6 right-6 text-cream text-3xl hover:text-gold">&times;</button>
-    <button onclick="prevImage()" class="absolute left-6 text-cream text-4xl hover:text-gold">&lsaquo;</button>
-    <button onclick="nextImage()" class="absolute right-6 text-cream text-4xl hover:text-gold">&rsaquo;</button>
-    <img id="lightbox-img" class="max-h-[85vh] max-w-[90vw] object-contain" />
-    <p id="lightbox-caption" class="absolute bottom-8 text-cream font-serif text-xl"></p>
-  </div>
-
   <script>
-    const collections = [
-      {
-        title: "High Gloss Modern Kitchen",
-        images: [
-          "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-1-1.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-2.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-4.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-5.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-7.jpg",
-        ]
-      },
-      {
-        title: "Traditional Inset Frame Cabinets",
-        images: [
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-3.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-22.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-20.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-19.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-18.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-17.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-16.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-2.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-10.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-14.jpg",
-        ]
-      },
-      {
-        title: "Traditional Shaker Style Kitchen",
-        images: [
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-2.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-7.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-8.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-9.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-11.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-0033.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-0039.jpg",
-        ]
-      },
-      {
-        title: "Vanities",
-        images: [
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-20.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/Fetrow-6-2-scaled-1.jpg",
-          "https://snitzcreek.com/wp-content/uploads/2023/03/IMG_5038-scaled-1.jpg",
-        ]
+    const carousels = document.querySelectorAll('.collection-carousel');
+
+    carousels.forEach((carousel) => {
+      const colIndex = carousel.dataset.collection;
+      const slides = carousel.querySelectorAll(`.collection-slide[data-collection="${colIndex}"]`);
+      const dots = carousel.querySelectorAll(`.collection-dot[data-collection="${colIndex}"]`);
+      let current = 0;
+      const total = slides.length;
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('opacity-100', i === index);
+          slide.classList.toggle('opacity-0', i !== index);
+        });
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('bg-gold', i === index);
+          dot.classList.toggle('bg-wood/30', i !== index);
+        });
+        current = index;
       }
-    ];
 
-    let currentCol = 0;
-    let currentImg = 0;
+      function nextSlide() {
+        showSlide((current + 1) % total);
+      }
 
-    function openLightbox(col, img) {
-      currentCol = col;
-      currentImg = img;
-      updateLightbox();
-      document.getElementById('lightbox').classList.remove('hidden');
-      document.getElementById('lightbox').classList.add('flex');
-    }
+      // Auto-advance every 6 seconds
+      let timer = setInterval(nextSlide, 6000);
 
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.add('hidden');
-      document.getElementById('lightbox').classList.remove('flex');
-    }
-
-    function nextImage() {
-      const len = collections[currentCol].images.length;
-      currentImg = (currentImg + 1) % len;
-      updateLightbox();
-    }
-
-    function prevImage() {
-      const len = collections[currentCol].images.length;
-      currentImg = (currentImg - 1 + len) % len;
-      updateLightbox();
-    }
-
-    function updateLightbox() {
-      const col = collections[currentCol];
-      document.getElementById('lightbox-img').src = col.images[currentImg];
-      document.getElementById('lightbox-caption').textContent = col.title;
-    }
-
-    // Keyboard support
-    document.addEventListener('keydown', (e) => {
-      const lb = document.getElementById('lightbox');
-      if (lb.classList.contains('hidden')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') nextImage();
-      if (e.key === 'ArrowLeft') prevImage();
+      // Dot clicks
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          clearInterval(timer);
+          showSlide(i);
+          timer = setInterval(nextSlide, 6000);
+        });
+      });
     });
-
-    // Expose for onclick
-    window.openLightbox = openLightbox;
-    window.closeLightbox = closeLightbox;
-    window.nextImage = nextImage;
-    window.prevImage = prevImage;
   </script>
 </Layout>
