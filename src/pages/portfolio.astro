@@ -116,21 +116,31 @@ const instagramImages = [
           <a href="https://www.instagram.com/snitzcreekcabinetshop/" target="_blank" rel="noopener" class="inline-block mt-4 text-wood hover:text-darkwood text-lg font-medium">@snitzcreekcabinetshop</a>
         </div>
 
-        <div class="instagram-scroll flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
-          {instagramImages.map((src) => (
-            <a 
-              href="https://www.instagram.com/snitzcreekcabinetshop/" 
-              target="_blank" 
-              rel="noopener"
-              class="flex-shrink-0 snap-center"
-            >
-              <img 
-                src={src} 
-                alt="Snitz Creek on Instagram" 
-                class="h-64 w-auto object-cover rounded hover:opacity-90 transition"
-              />
-            </a>
-          ))}
+        <div class="relative">
+          <button type="button" class="insta-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-16 bg-cream/90 hover:bg-gold text-darkwood flex items-center justify-center rounded-r shadow-md transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+
+          <div class="instagram-scroll flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory" style="scrollbar-width: none; -ms-overflow-style: none;">
+            {instagramImages.map((src) => (
+              <a 
+                href="https://www.instagram.com/snitzcreekcabinetshop/" 
+                target="_blank" 
+                rel="noopener"
+                class="flex-shrink-0 snap-center"
+              >
+                <img 
+                  src={src} 
+                  alt="Snitz Creek on Instagram" 
+                  class="h-64 w-auto object-cover rounded hover:opacity-90 transition"
+                />
+              </a>
+            ))}
+          </div>
+
+          <button type="button" class="insta-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-16 bg-cream/90 hover:bg-gold text-darkwood flex items-center justify-center rounded-l shadow-md transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
         </div>
       </div>
     </section>
@@ -141,6 +151,12 @@ const instagramImages = [
     </section>
   </main>
   <Footer />
+
+  <style>
+    .instagram-scroll::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
 
   <script>
     const carousels = document.querySelectorAll('.collection-carousel');
@@ -225,17 +241,21 @@ const instagramImages = [
       window.addEventListener('resize', () => showSlide(current));
     });
 
-    // Auto-scroll Instagram strip
+    // Instagram scroll with arrows
     const instaScroll = document.querySelector('.instagram-scroll');
-    if (instaScroll) {
-      let scrollAmount = 0;
-      setInterval(() => {
-        scrollAmount += 1;
-        if (scrollAmount >= instaScroll.scrollWidth - instaScroll.clientWidth) {
-          scrollAmount = 0;
-        }
-        instaScroll.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-      }, 30);
+    const prevBtn = document.querySelector('.insta-prev');
+    const nextBtn = document.querySelector('.insta-next');
+
+    if (instaScroll && prevBtn && nextBtn) {
+      const scrollStep = 300;
+
+      prevBtn.addEventListener('click', () => {
+        instaScroll.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        instaScroll.scrollBy({ left: scrollStep, behavior: 'smooth' });
+      });
     }
   </script>
 </Layout>
