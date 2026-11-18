@@ -120,22 +120,11 @@ const accessoryImages = [
       </div>
     </section>
 
-    <!-- Decorative Hardware -->
-    <section class="py-16 bg-cream">
-      <div class="max-w-4xl mx-auto px-6">
-        <h2 class="font-serif text-3xl md:text-4xl text-darkwood mb-6 text-center">Decorative Hardware</h2>
-        <div class="prose prose-lg max-w-none text-charcoal/80 leading-relaxed space-y-4">
-          <p>The right hardware completes the look. We offer industry-leading brands of pulls, knobs, and decorative hardware to elevate the style of your cabinetry.</p>
-          <p>Our team helps you navigate the options so the hardware complements your design — whether traditional, modern, or transitional.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- Accessories -->
     <section class="py-16 max-w-7xl mx-auto px-6">
       <h2 class="font-serif text-3xl md:text-4xl text-darkwood mb-6 text-center">Accessories</h2>
       <p class="text-center text-charcoal/70 max-w-2xl mx-auto mb-10">Snitz Creek Cabinet Shop provides a wide range of accessories. Please ask us for solutions to your storage dilemmas.</p>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
         {accessoryImages.map(img => (
           <div class="group">
             <div class="aspect-[3/4] bg-cream overflow-hidden rounded mb-3 flex items-center justify-center">
@@ -144,6 +133,14 @@ const accessoryImages = [
             <h3 class="text-sm text-darkwood text-center">{img.title}</h3>
           </div>
         ))}
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <h3 class="font-serif text-2xl md:text-3xl text-darkwood mb-4 text-center">Decorative Hardware</h3>
+        <div class="prose prose-lg max-w-none text-charcoal/80 leading-relaxed space-y-4 text-center">
+          <p>The right hardware completes the look. We offer industry-leading brands of pulls, knobs, and decorative hardware to elevate the style of your cabinetry.</p>
+          <p>Our team helps you navigate the options so the hardware complements your design — whether traditional, modern, or transitional.</p>
+        </div>
       </div>
     </section>
 
