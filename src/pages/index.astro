@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Snitz Creek Cabinet Shop | Fine Custom Cabinetry Since 1967">
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="relative h-screen min-h-[700px] flex items-end">
+      <img 
+        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=80" 
+        alt="Luxury custom kitchen cabinetry" 
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/30 to-transparent"></div>
+      <div class="relative z-10 max-w-7xl mx-auto px-6 pb-24 w-full">
+        <p class="text-gold text-sm uppercase tracking-[0.3em] mb-4">Since 1967</p>
+        <h1 class="font-serif text-5xl md:text-7xl text-cream leading-tight max-w-3xl">Handcrafted Cabinetry,<br>Built for Generations</h1>
+        <p class="mt-6 text-cream/80 text-lg max-w-xl">Family-owned custom cabinetry from Lebanon, Pennsylvania. Blending traditional craftsmanship with precision CNC technology.</p>
+        <div class="mt-10 flex gap-4">
+          <a href="/contact" class="bg-gold text-charcoal px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-cream transition">Start Your Project</a>
+          <a href="/cabinetry" class="border border-cream/40 text-cream px-8 py-4 text-sm uppercase tracking-widest hover:bg-cream/10 transition">View Work</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="py-24 bg-cream">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <p class="text-wood text-sm uppercase tracking-[0.3em] mb-6">Quality · Service · Eco-friendly</p>
+        <h2 class="font-serif text-4xl md:text-5xl text-darkwood leading-tight">Over fifty years of creating elegance for homes across the region.</h2>
+        <p class="mt-8 text-lg text-charcoal/70 leading-relaxed">What began in a converted chicken house along Snitz Creek has grown into a trusted local icon for fine custom cabinetry. We combine the precision of modern computerized equipment with the care of traditional hand skills.</p>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="group">
+            <div class="aspect-[4/5] overflow-hidden mb-6">
+              <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=800&q=80" alt="Custom cabinetry" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+            </div>
+            <h3 class="font-serif text-2xl text-darkwood mb-3">Cabinetry</h3>
+            <p class="text-charcoal/70">Framed and frameless styles, designed and built to suit your home. From kitchens to baths to entertainment spaces.</p>
+            <a href="/cabinetry" class="inline-block mt-4 text-sm uppercase tracking-widest text-wood hover:text-darkwood">Explore →</a>
+          </div>
+          <div class="group">
+            <div class="aspect-[4/5] overflow-hidden mb-6">
+              <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" alt="Countertops" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+            </div>
+            <h3 class="font-serif text-2xl text-darkwood mb-3">Countertops</h3>
+            <p class="text-charcoal/70">Natural stone, solid surface, wood, and more. Chosen for appearance, feel, and function.</p>
+            <a href="/countertops" class="inline-block mt-4 text-sm uppercase tracking-widest text-wood hover:text-darkwood">Explore →</a>
+          </div>
+          <div class="group">
+            <div class="aspect-[4/5] overflow-hidden mb-6">
+              <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80" alt="Accessories and storage" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+            </div>
+            <h3 class="font-serif text-2xl text-darkwood mb-3">Accessories</h3>
+            <p class="text-charcoal/70">Thoughtful storage solutions and finishing details that complete the space.</p>
+            <a href="/contact" class="inline-block mt-4 text-sm uppercase tracking-widest text-wood hover:text-darkwood">Ask Us →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 bg-darkwood text-cream">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="font-serif text-4xl md:text-5xl mb-6">Ready to transform your space?</h2>
+        <p class="text-cream/70 text-lg mb-10">Visit our showroom or schedule a consultation with our designers.</p>
+        <a href="/contact" class="inline-block bg-gold text-charcoal px-10 py-4 text-sm uppercase tracking-widest font-medium hover:bg-cream transition">Contact Us</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
