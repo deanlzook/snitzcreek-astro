@@ -46,6 +46,10 @@ const styleImages = [
   src: `https://snitzcreek.com/wp-content/uploads/2023/02/${name}.jpg`,
   title: name.replace(/-scaled-400x400-1$/, "").replace(/-/g, " ")
 }));
+
+const finishImages = [
+  "2-2", "3-1", "4-1", "5-1", "6-1", "7-1", "8-1", "9-1", "10-1", "11-1", "12-1", "13-1"
+].map(name => `https://snitzcreek.com/wp-content/uploads/2023/02/${name}.jpg`);
 ---
 
 <Layout title="Cabinetry | Snitz Creek Cabinet Shop">
@@ -92,11 +96,17 @@ const styleImages = [
     </section>
 
     <!-- Finishes -->
-    <section class="py-16 max-w-4xl mx-auto px-6">
+    <section class="py-16 max-w-7xl mx-auto px-6">
       <h2 class="font-serif text-3xl md:text-4xl text-darkwood mb-6 text-center">Finishes</h2>
-      <div class="prose prose-lg max-w-none text-charcoal/80 leading-relaxed space-y-4">
-        <p>We offer a full range of finishes to complement your chosen style and species — natural clear coats that highlight the wood grain, stains, painted finishes, and specialty treatments.</p>
-        <p>Our designers work with you to select the right finish for appearance, durability, and the look you want. Browse the portfolio to see examples of completed finishes on real projects.</p>
+      <p class="text-center text-charcoal/70 max-w-2xl mx-auto mb-10">We have included several of our many options for cabinet finishes. There are almost no finishes we cannot do! If you have a favorite paint color, we can color match it!</p>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {finishImages.map((src, i) => (
+          <div class="group">
+            <div class="aspect-square bg-cream overflow-hidden rounded flex items-center justify-center">
+              <img src={src} alt={`Finish sample ${i + 1}`} class="max-w-full max-h-full object-contain group-hover:scale-105 transition duration-700" />
+            </div>
+          </div>
+        ))}
       </div>
     </section>
 
@@ -115,8 +125,12 @@ const styleImages = [
     <section class="py-16 max-w-4xl mx-auto px-6">
       <h2 class="font-serif text-3xl md:text-4xl text-darkwood mb-6 text-center">Warranty</h2>
       <div class="prose prose-lg max-w-none text-charcoal/80 leading-relaxed space-y-4">
-        <p>We stand behind the quality of our work. Snitz Creek Cabinet Shop provides a warranty on craftsmanship and materials. Details are reviewed with you during the design and order process so you know exactly what is covered.</p>
-        <p>Our reputation has been built over more than 50 years of delivering cabinetry that lasts. Contact us with any questions about coverage.</p>
+        <p><strong>The Snitz Creek Cabinet Shop proudly warrants its custom kitchen cabinetry to be free from defects in materials and workmanship to the original owner for the lifetime of the warranty.</strong></p>
+        <p>This warranty covers the craftsmanship of the cabinet boxes, doors and functional hardware. Natural aging or darkening of wood color, variation in wood and grains, normal wear and tear are typical in solid wood, and are not considered defects. Over time gaps may develop in door joints from temperature and humidity changes, these gaps are not subject to repair or replacement as they are a normal part of the aging process. This warranty does not include damage due to misuse, abuse, improper storage, or exposure to extreme temperatures or humidity.</p>
+        <p>Please note that the Snitz Creek Cabinet Shop continuously strives to provide the best quality products to its customers and therefore, due to progress and possibly other circumstances outside its control, identical replacement parts may not be available. Snitz Creek Cabinet Shop cannot be held liable in the case that the replacement parts are different than parts originally supplied at the time of purchase. As time progresses, natural and environmental elements will alter the appearance of wood products; Snitz Creek Cabinet Shop will make its best efforts to match the appearance of the original products, but cannot be held responsible if the color match is not perfect.</p>
+        <p>Should a defect in the material or workmanship arise during the warranty period, Snitz Creek Cabinet Shop reserves the right use its judgment to either repair or replace the defective part(s). This warranty includes only the parts and materials which were supplied by Snitz Creek Cabinet Shop, and does not cover costs for removal or reinstallation of countertops, plumbing fixtures, appliances or labor costs.</p>
+        <p>To submit a warranty claim, please contact the Snitz Creek Cabinet Shop at:</p>
+        <p>2020 Cornwall Rd., Lebanon, PA 17042<br />Ph: <a href="tel:7172739861" class="text-wood hover:text-darkwood">(717) 273-9861</a></p>
       </div>
     </section>
 
