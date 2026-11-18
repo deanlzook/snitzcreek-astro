@@ -272,11 +272,21 @@ const instagramImages = [
     const lightbox = document.getElementById('insta-lightbox');
     const lightboxContent = document.getElementById('insta-lightbox-content');
     const closeBtn = document.getElementById('insta-close');
-    const images = {instagramImages.map(src => `'${src}'`).join(',')};
+
+    const instaImageSrcs = [
+      "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-1-1.jpg",
+      "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-3.jpg",
+      "https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-.jpg",
+      "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-2.jpg",
+      "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-22.jpg",
+      "https://snitzcreek.com/wp-content/uploads/2023/03/Lynn-Reisinger-2.jpg",
+      "https://snitzcreek.com/wp-content/uploads/2023/03/modern-kitchen-4.jpg",
+      "https://snitzcreek.com/wp-content/uploads/2023/03/Giannini-20.jpg",
+    ];
 
     instaItems.forEach((item) => {
       item.addEventListener('click', () => {
-        lightboxContent.innerHTML = images.split(',').map(src => 
+        lightboxContent.innerHTML = instaImageSrcs.map(src => 
           `<img src="${src}" class="w-full h-auto object-contain rounded" alt="" />`
         ).join('');
         lightbox.classList.remove('hidden');
