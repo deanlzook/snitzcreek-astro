@@ -68,12 +68,12 @@ const collections = [
         <div class="collection-carousel" data-collection={colIndex}>
           <h2 class="font-serif text-3xl md:text-4xl text-darkwood mb-8">{collection.title}</h2>
           
-          <div class="relative aspect-[16/9] md:aspect-[16/7] overflow-hidden bg-cream">
+          <div class="collection-frame relative flex items-center justify-center bg-cream min-h-[400px] max-h-[80vh] overflow-hidden transition-all duration-500">
             {collection.images.map((src, imgIndex) => (
               <img
                 src={src}
                 alt={collection.title}
-                class={`collection-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}`}
+                class={`collection-slide absolute max-w-full max-h-[80vh] w-auto h-auto object-contain transition-opacity duration-1000 ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}`}
                 data-collection={colIndex}
                 data-index={imgIndex}
               />
@@ -108,6 +108,7 @@ const collections = [
 
     carousels.forEach((carousel) => {
       const colIndex = carousel.dataset.collection;
+      const frame = carousel.querySelector('.collection-frame');
       const slides = carousel.querySelectorAll(`.collection-slide[data-collection="${colIndex}"]`);
       const dots = carousel.querySelectorAll(`.collection-dot[data-collection="${colIndex}"]`);
       let current = 0;
@@ -117,17 +118,38 @@ const collections = [
         slides.forEach((slide, i) => {
           slide.classList.toggle('opacity-100', i === index);
           slide.classList.toggle('opacity-0', i !== index);
+          slide.classList.toggle('pointer-events-none', i !== index);
         });
         dots.forEach((dot, i) => {
           dot.classList.toggle('bg-gold', i === index);
           dot.classList.toggle('bg-wood/30', i !== index);
         });
+
+        // Adjust frame height to the current image
+        const activeImg = slides[index];
+        if (activeImg.complete && activeImg.naturalHeight) {
+          const ratio = activeImg.naturalHeight / activeImg.naturalWidth;
+          const width = frame.clientWidth;
+          const height = Math.min(width * ratio, window.innerHeight * 0.8);
+          frame.style.height = height + 'px';
+        } else {
+          activeImg.onload = () => {
+            const ratio = activeImg.naturalHeight / activeImg.naturalWidth;
+            const width = frame.clientWidth;
+            const height = Math.min(width * ratio, window.innerHeight * 0.8);
+            frame.style.height = height + 'px';
+          };
+        }
+
         current = index;
       }
 
       function nextSlide() {
         showSlide((current + 1) % total);
       }
+
+      // Initial sizing
+      showSlide(0);
 
       // Auto-advance every 6 seconds
       let timer = setInterval(nextSlide, 6000);
@@ -140,6 +162,9 @@ const collections = [
           timer = setInterval(nextSlide, 6000);
         });
       });
+
+      // Resize handling
+      window.addEventListener('resize', () => showSlide(current));
     });
   </script>
 </Layout>
